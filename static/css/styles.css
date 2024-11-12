@@ -1,0 +1,268 @@
+/* styles.css */
+
+/* 布局样式 */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    margin: 0;
+    text-align: center;
+}
+
+/* 标签容器样式 */
+#tabs {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    /* 去除上方的间距，与标题紧密相连 */
+    padding: 0;
+    border-bottom: 1px solid #ccc;
+    /* 底部边框，模拟选项卡的底部 */
+    background-color: #f1f1f1;
+    /* 标签容器的背景色 */
+}
+
+/* 标签按钮的基本样式 */
+.tab-button {
+    background-color: #f1f1f1;
+    /* 未选中标签的背景色 */
+    border: 1px solid #ccc;
+    border-bottom: none;
+    /* 去除底部边框，使选中标签突出 */
+    color: #007bff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-bottom: -1px;
+    /* 使按钮稍微向下移动，覆盖容器的底部边框 */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 首尾标签的圆角 */
+.tab-button:first-child {
+    border-top-left-radius: 5px;
+}
+
+.tab-button:last-child {
+    border-top-right-radius: 5px;
+}
+
+/* 选中标签的样式 */
+.tab-button.active {
+    background-color: #ffffff;
+    /* 选中标签的背景色 */
+    color: #000;
+    border-bottom: 1px solid #ffffff;
+    /* 与背景色一致，隐藏底部边框 */
+}
+
+/* 鼠标悬停效果 */
+.tab-button:hover {
+    background-color: #e0e0e0;
+    color: #000;
+}
+
+/* 使标签按钮在容器中均匀分布 */
+.tab-button {
+    flex: 1;
+    text-align: center;
+}
+
+/* 控制面板样式 */
+#controls {
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#controls>* {
+    margin-right: 10px;
+}
+
+/* 主容器样式 */
+#container {
+    display: flex;
+    height: 80vh;
+    margin: 20px;
+}
+
+#context-nav {
+    width: 20%;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+#translations {
+    width: 80%;
+    padding: 10px;
+    overflow-y: auto;
+}
+
+/* 上下文项样式 */
+.context-item {
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    transition: background-color 0.3s;
+}
+
+.context-item:hover,
+.context-item.selected {
+    background-color: #e9ecef;
+}
+
+.unfinished {
+    background-color: #ffeeba !important;
+}
+
+.translated {
+    background-color: #c3e6cb !important;
+}
+
+.obsolete {
+    background-color: #f5c6cb !important;
+}
+
+.highlighted {
+    border: 2px solid #007bff;
+}
+
+/* 按钮样式 */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* 搜索和筛选框样式 */
+#statusFilter,
+#searchBox {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* 翻译项样式 */
+
+
+.source-box {
+    display: block;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f0f8ff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    max-width: 50%;
+    overflow-wrap: break-word;
+    white-space: pre-wrap;
+    /* 保留换行符并自动换行 */
+    margin-bottom: 10px;
+    /* 添加下边距 */
+}
+
+.translation-textarea {
+    width: 50%;
+    height: 40px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #333;
+    margin-top: 5px;
+    resize: vertical;
+    transition: border-color 0.3s;
+}
+
+.translation-textarea:focus {
+    border-color: #66afe9;
+    outline: none;
+    box-shadow: 0 0 8px rgba(102, 175, 233, 0.6);
+}
+
+.status-select {
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    font-size: 14px;
+    transition: border-color 0.3s;
+}
+
+.status-select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.translation-item {
+    margin-bottom: 20px;
+    /* 每个项之间的间距 */
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    /* 边框颜色 */
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* 添加阴影 */
+    background-color: #fafafa;
+    /* 背景颜色 */
+}
+
+.translation-item:last-child {
+    border-bottom: none;
+}
+
+.translation-item p {
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+}
+
+
+
+.translation-item p input[type="text"] {
+    /* flex-grow: 1; */
+    padding: 5px;
+    margin-left: 10px;
+    width: 200px;
+}
+
+
+/* Tooltips for context details */
+.context-item[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 3px;
+    font-size: 12px;
+    white-space: pre;
+    z-index: 10;
+    transform: translate(10px, 0);
+}
